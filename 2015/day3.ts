@@ -24,7 +24,7 @@ const countUniqueHomes = (directions: string, coord: [number, number] = [0,0], l
 
 
 // Non recursive
-const countUniqueHomes2 = (directions: string, coord: [number, number] = [0,0]): number => {
+const countUniqueHomesNR = (directions: string, coord: [number, number] = [0,0]): number => {
     set.add(coord.toString())
 
     for (let i = 0; i < directions.length; i++){
@@ -43,6 +43,6 @@ const countUniqueHomes2 = (directions: string, coord: [number, number] = [0,0]):
     return set.size
 }
 
-console.log(countUniqueHomes2(day3.input))
+console.log(countUniqueHomesNR(day3.input))
 // Answer 2572
 
