@@ -22,7 +22,6 @@ const countUniqueHomes = (directions: string, coord: [number, number] = [0,0], l
     return countUniqueHomes(directions.substring(1, directions.length), coord, list)
 }
 
-
 // Non recursive
 const countUniqueHomesNR = (directions: string, coord: [number, number] = [0,0]): number => {
     set.add(coord.toString())
@@ -43,6 +42,44 @@ const countUniqueHomesNR = (directions: string, coord: [number, number] = [0,0])
     return set.size
 }
 
-console.log(countUniqueHomesNR(day3.input))
+// console.log(countUniqueHomesNR(day3.input))
 // Answer 2572
 
+// Part 2
+// Non recursive
+const countUniqueHomesNR2 = (directions: string, coord: [number, number] = [0,0]): number => {
+    set.add(coord.toString())
+    let coord2 = [coord[0], coord[1]]
+
+    for (let i = 0; i < directions.length; i += 2){
+        const move = directions[i]
+        if (move === '<'){
+            coord[0] -= 1
+        } else if (move == '^'){
+            coord[1] -= 1
+        } else if (move === '>'){
+            coord[0] += 1
+        } else if (move === 'v'){
+            coord[1] += 1
+        }
+        set.add(coord.toString())
+    }
+
+    for (let i = 1; i < directions.length; i += 2){
+        const move = directions[i]
+        if (move === '<'){
+            coord2[0] -= 1
+        } else if (move == '^'){
+            coord2[1] -= 1
+        } else if (move === '>'){
+            coord2[0] += 1
+        } else if (move === 'v'){
+            coord2[1] += 1
+        }
+        set.add(coord2.toString())
+    }
+    return set.size
+}
+
+console.log(countUniqueHomesNR2(day3.input))
+// Answer 2492
