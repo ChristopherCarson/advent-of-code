@@ -4,7 +4,7 @@ const day7 = require('./day7_input.ts')
 const COMMAND_REGEX = /[A-Z]+/g;
 const ARGUMENTS_REGEX = /[a-z0-9]+/g;
 
-
+// I GAVE UP ON THIS ONE AND USED THIS ONLINE VERSION AS A LEARNING EXAMPLE
 // PART 1
 const WIRES = new Map();
 
